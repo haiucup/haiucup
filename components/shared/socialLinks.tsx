@@ -9,7 +9,7 @@ const icons: Record<string, ReactNode> = {
 };
 
 const SocialLinks = () => (
-  <ul aria-label="Social profiles" className="flex flex-wrap gap-2.5">
+  <ul aria-label="Social profiles" className="flex flex-wrap gap-2.5 lg:justify-center">
     {profile.socials.map(({ name, url }) => (
       <li key={name}>
         <a

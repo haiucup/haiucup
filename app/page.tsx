@@ -1,21 +1,27 @@
 import { Navbar } from "@/components/shared/navbar";
 import ProfileBar from "@/components/shared/profileBar";
 import { HomeSection } from "@/components/shared/homeSection";
+import { AboutSection } from "@/components/shared/aboutSection";
+import { ExperienceSection } from "@/components/shared/experienceSection";
+import { PortfolioSection } from "@/components/shared/portfolioSection";
 import Image from "next/image";
 import { profile } from "@/lib/profile";
 
 const Home = () => {
   return (
-    // Mobile: navbar dengan hamburger → Home. Laptop: sidebar kiri, navbar dan Home kanan.
-    <main className="mx-auto grid min-h-screen w-full max-w-[1600px] grid-cols-1 content-start items-start gap-4 px-4 pt-4 pb-7 font-poppins text-[#141822] lg:h-dvh lg:min-h-0 lg:grid-cols-[330px_minmax(0,1fr)] lg:grid-rows-[auto_minmax(0,1fr)] lg:gap-[22px] lg:p-6">
-      <div className="min-w-0 lg:col-start-2 lg:row-start-1"><Navbar /></div>
-      <div className="flex min-w-0 flex-col gap-4 lg:col-start-2 lg:row-start-2 lg:h-full lg:min-h-0">
-        <div className="lg:min-h-0 lg:flex-1"><HomeSection /></div>
+    // Mobile mengikuti urutan konten; laptop menambahkan sidebar di kolom kiri.
+    <main className="mx-auto grid min-h-screen w-full max-w-[1600px] grid-cols-1 content-start items-start gap-4 px-4 pt-3.5 pb-7 font-poppins text-[#141822] lg:grid-cols-[330px_minmax(0,1fr)] lg:grid-rows-[70px_auto] lg:gap-[22px] lg:px-[22px] lg:py-[26px] lg:[&_section]:scroll-mt-32">
+      <div className="sticky top-3 z-20 min-w-0 lg:top-[26px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start"><Navbar /></div>
+      <div className="flex min-w-0 flex-col gap-4 lg:col-start-2 lg:row-start-2 lg:gap-[22px] lg:pr-2.5">
+        <HomeSection />
+        <AboutSection />
+        <ExperienceSection />
+        <PortfolioSection />
         <footer
           id="contact"
           aria-labelledby="contact-heading"
           tabIndex={-1}
-          className="shrink-0 scroll-mt-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#355FC7]"
+          className="shrink-0 scroll-mt-28 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#355FC7] lg:scroll-mt-32"
         >
           <div className="relative isolate flex flex-col gap-[18px] overflow-hidden rounded-[20px] border-[3px] border-[#141822] bg-[#E4ECFF] px-5 py-[22px] shadow-[5px_5px_0_#141822] lg:flex-row lg:items-center lg:justify-between lg:gap-[22px] lg:rounded-[22px] lg:p-8 lg:shadow-[7px_7px_0_#141822]">
             <div aria-hidden="true" className="pointer-events-none absolute top-[132px] -right-[27px] -z-10 size-[130px] rounded-full bg-[#C7D7FA] opacity-45 lg:-top-[43px] lg:right-auto lg:-left-[27px] lg:size-[150px] lg:bg-[#FFDF8F]" />

@@ -8,7 +8,7 @@ const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistSans = Geist({
@@ -22,8 +22,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "haiucup  —  Sofware Engineer",
-  description: "Yusup Maulana's personal site",
+  title: "Yusup Maulana — Software Engineer | haiucup",
+  description:
+    "Surabaya-based Software Engineer with 6+ years of experience in banking services, APIs, and full-stack web applications. Explore my work, projects, and community involvement.",
 };
 
 const RootLayout = ({ children }: LayoutProps<"/">) => {

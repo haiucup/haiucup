@@ -2,6 +2,7 @@
 
 import { useRef, useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
+import { navItems } from "@/lib/nav-items";
 
 const MobileMenu = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,22 +34,15 @@ const MobileMenu = ({ children }: { children: ReactNode }) => {
       </div>
       <nav id="mobile-navigation" aria-label="Mobile navigation" hidden={!isOpen} className="mt-4 border-t border-[#DDE2EF] pt-3">
         <ul className="flex flex-col gap-1">
-          <li>
-            <a href="#home" aria-current="page" onClick={() => setIsOpen(false)} className="flex rounded-lg bg-[#E4ECFF] px-3 py-3 text-sm font-semibold text-[#355FC7] focus-visible:outline-2 focus-visible:outline-[#355FC7]">Home</a>
-          </li>
-          {["About Me", "Experience", "Portfolio", "Contact Me"].map((menu) => (
-            <li key={menu}>
-              {menu === "Contact Me" ? (
-                <a
-                  href="#contact"
-                  onClick={() => setIsOpen(false)}
-                  className="flex rounded-lg px-3 py-3 text-sm font-medium transition-colors hover:bg-[#EEF1FA] focus-visible:outline-2 focus-visible:outline-[#355FC7]"
-                >
-                  {menu}
-                </a>
-              ) : (
-                <button type="button" disabled title={`${menu} — coming soon`} className="w-full cursor-not-allowed rounded-lg px-3 py-3 text-left text-sm font-medium text-[#6A7186]">{menu}</button>
-              )}
+          {navItems.map(({ label, href }) => (
+            <li key={href}>
+              <a
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className={`flex min-h-11 items-center rounded-lg px-3 py-3 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-[#355FC7] ${href === "#home" ? "bg-[#E4ECFF] text-[#355FC7]" : "hover:bg-[#EEF1FA]"}`}
+              >
+                {label}
+              </a>
             </li>
           ))}
         </ul>

@@ -9,23 +9,26 @@ type ProfileBarProps = {
   className?: string;
 };
 
+// Dipakai di sidebar laptop dan di dalam About pada mobile.
+const ProfileFields = () => (
+  <dl>
+    {profile.details.map(({ label, value }) => (
+      <div key={label} className="border-t border-[#DDE2EF] py-2">
+        <dt className="mb-1 text-[10px] font-medium tracking-[0.12em] text-[#6A7186] uppercase">{label}</dt>
+        <dd className="whitespace-pre-line text-[13px] font-normal leading-[22px]">{value}</dd>
+      </div>
+    ))}
+  </dl>
+);
+
 const ProfileBar = ({ className }: ProfileBarProps) => (
   <aside
-    id="about"
-    aria-label="About Yusup Maulana"
-    className={cn("flex min-w-0 scroll-mt-6 flex-col gap-3 rounded-[18px] border-[3px] border-[#141822] bg-white p-4 shadow-[6px_6px_0_#141822] [scrollbar-width:thin] [&>*]:shrink-0 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain", className)}
+    aria-label="Yusup Maulana's profile"
+    className={cn("flex min-w-0 flex-col gap-4 rounded-[18px] border-[3px] border-[#141822] bg-white p-[18px] shadow-[6px_6px_0_#141822] [&>*]:shrink-0 lg:sticky lg:top-[26px] lg:min-h-[calc(100dvh_-_52px)]", className)}
   >
-    <div className="hidden lg:block"><ProfileIdentity /></div>
-    <div className="hidden lg:block"><ProfilePhoto className="lg:aspect-auto lg:h-[clamp(160px,calc(100dvh_-_600px),288px)] lg:[&_img]:object-cover lg:[&_img]:object-top" /></div>
-    <h2 className="text-lg font-bold lg:hidden">About me</h2>
-    <dl>
-      {profile.details.map(({ label, value }) => (
-        <div key={label} className="border-t border-[#DDE2EF] py-2">
-          <dt className="mb-1 text-[10px] font-medium tracking-[0.12em] text-[#6A7186] uppercase">{label}</dt>
-          <dd className="whitespace-pre-line text-[13px] font-normal leading-[22px]">{value}</dd>
-        </div>
-      ))}
-    </dl>
+    <ProfileIdentity />
+    <ProfilePhoto className="mx-auto w-full lg:max-w-[clamp(160px,calc(100dvh_-_680px),288px)]" />
+    <ProfileFields />
     <SocialLinks />
     <a
       href={profile.email ? `mailto:${profile.email}` : "mailto:"}
@@ -38,3 +41,4 @@ const ProfileBar = ({ className }: ProfileBarProps) => (
 );
 
 export default ProfileBar;
+export { ProfileFields };

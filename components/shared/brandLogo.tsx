@@ -8,8 +8,8 @@ const ProfileIdentity = ({ className }: { className?: string }) => (
     aria-label={`${profile.name} — Home`}
     className={cn("flex min-w-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#355FC7]", className)}
   >
-    <span className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-[#141822] bg-[#C7D7FA] lg:size-[50px]">
-      <Image src="/ym-logo.svg" alt="" width={24} height={30} className="h-6 w-auto lg:h-7" />
+    <span className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-[#3A4A6B] bg-[#C7D7FA] lg:size-[50px]">
+      <Image src="/ym-logo.svg" alt="" width={24} height={30} className="h-6 w-auto translate-y-0.5 lg:h-7" />
     </span>
     <span className="min-w-0">
       <span className="block text-sm font-bold leading-snug lg:text-base">{profile.name}</span>
